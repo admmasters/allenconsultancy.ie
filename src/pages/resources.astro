@@ -1,0 +1,183 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Resources">
+	<div class="resources-container">
+		<h1>Resources</h1>
+		
+		<div class="coming-soon">
+			<div class="coming-soon-content">
+				<h2>Resources Coming Soon</h2>
+				<p>
+					We're currently developing valuable resources for child protection professionals and families, including:
+				</p>
+				
+				<div class="resource-types">
+					<div class="resource-type">
+						<h3>1. Videos and Media</h3>
+						<p>Educational content and interviews about child protection best practices.</p>
+					</div>
+					
+					<div class="resource-type">
+						<h3>2. Downloads</h3>
+						<p>Useful templates, guides, and reference materials.</p>
+					</div>
+					
+					<div class="resource-type">
+						<h3>3. Guidance</h3>
+						<p>Professional advice and recommended approaches to common challenges.</p>
+					</div>
+				</div>
+				
+				<div class="notification">
+					<p>
+						Subscribe to be notified when new resources become available:
+					</p>
+					<form class="subscribe-form">
+						<input type="email" placeholder="Your email address" />
+						<button type="submit" class="subscribe-button">Notify Me</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="cta">
+			<a href="/contact" class="cta-button">Contact for More Information</a>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.resources-container {
+		padding: 2rem 0;
+	}
+
+	h1 {
+		font-size: clamp(2.5rem, 5vw, 3.5rem);
+		font-weight: 500;
+		margin-bottom: 2.5rem;
+	}
+
+	.coming-soon {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+		padding: 2.5rem;
+		margin-bottom: 3rem;
+		backdrop-filter: blur(5px);
+	}
+
+	.coming-soon-content {
+		max-width: 800px;
+		margin: 0 auto;
+	}
+
+	h2 {
+		font-size: clamp(1.8rem, 3vw, 2.3rem);
+		color: var(--color-primary);
+		margin-bottom: 1.5rem;
+		text-align: center;
+	}
+
+	h3 {
+		font-size: clamp(1.2rem, 2vw, 1.5rem);
+		margin-bottom: 0.5rem;
+		color: var(--color-text);
+	}
+
+	p {
+		margin-bottom: 1.5rem;
+		font-size: clamp(1rem, 1.2vw, 1.1rem);
+		line-height: 1.6;
+	}
+
+	.resource-types {
+		margin: 2rem 0;
+	}
+
+	.resource-type {
+		margin-bottom: 1.5rem;
+	}
+
+	.resource-type p {
+		opacity: 0.9;
+	}
+
+	.notification {
+		background-color: rgba(230, 126, 34, 0.2);
+		padding: 1.5rem;
+		border-radius: 6px;
+		margin-top: 2rem;
+	}
+
+	.notification p {
+		margin-bottom: 1rem;
+	}
+
+	.subscribe-form {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.subscribe-form input {
+		flex: 1;
+		padding: 0.75rem;
+		border: none;
+		border-radius: 4px;
+		background-color: rgba(255, 255, 255, 0.9);
+	}
+
+	.subscribe-button {
+		background-color: var(--color-primary);
+		color: var(--color-text);
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 4px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: background-color 0.2s;
+	}
+
+	.subscribe-button:hover {
+		background-color: #d35400;
+	}
+
+	.cta {
+		margin-top: 2rem;
+		text-align: center;
+	}
+
+	.cta-button {
+		display: inline-block;
+		background-color: var(--color-primary);
+		color: var(--color-text);
+		text-decoration: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 4px;
+		font-weight: 500;
+		transition: background-color 0.2s;
+	}
+
+	.cta-button:hover {
+		background-color: #d35400;
+	}
+
+	@media (max-width: 768px) {
+		.resources-container {
+			padding: 1rem 0;
+		}
+		
+		.coming-soon {
+			padding: 1.5rem;
+		}
+		
+		.subscribe-form {
+			flex-direction: column;
+		}
+		
+		.subscribe-form input,
+		.subscribe-button {
+			width: 100%;
+		}
+	}
+</style>
