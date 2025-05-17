@@ -15,32 +15,10 @@ const pathname = new URL(Astro.request.url).pathname;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Allen Consultancy</title>
-		<style>
-			.page-transition {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background-color: rgba(0, 0, 0, 0.3);
-				opacity: 0;
-				pointer-events: none;
-				z-index: 9999;
-				transition: opacity 0.2s ease;
-			}
-			
-			@media (max-width: 768px) {
-				.page-transition {
-					background-color: rgba(0, 0, 0, 0.1);
-					transition: opacity 0.15s ease;
-				}
-			}
-		</style>
 	</head>
 	<body>
-		<div class="page-transition" id="page-transition"></div>
 		<div class="container">
-			<nav class="fade-in">
+			<nav>
 				<div class="logo">
 					<img src="/psyclass-logo.svg" alt="Allen Consultancy" />
 					<span>Allen Consultancy</span>
@@ -52,7 +30,7 @@ const pathname = new URL(Astro.request.url).pathname;
 					<a href="/blog" class={pathname === "/blog" ? "active" : ""}>Blog</a>
 					<a href="/contact" class={pathname === "/contact" ? "active" : ""}>Contact</a>
 				</div>
-				<a href="/contact" class="get-in-touch pulse">Get in Touch</a>
+				<a href="/contact" class="get-in-touch">Get in Touch</a>
 				<div class="menu-toggle" id="menu-toggle">
 					<span></span>
 					<span></span>
@@ -60,7 +38,7 @@ const pathname = new URL(Astro.request.url).pathname;
 				</div>
 			</nav>
 
-			<main class="fade-up">
+			<main>
 				<slot />
 			</main>
 		</div>
@@ -185,95 +163,6 @@ const pathname = new URL(Astro.request.url).pathname;
 		}
 	}
 
-	/* Animation styles */
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
-
-	@keyframes fadeUp {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes pulse {
-		0% {
-			box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.4);
-		}
-		70% {
-			box-shadow: 0 0 0 10px rgba(230, 126, 34, 0);
-		}
-		100% {
-			box-shadow: 0 0 0 0 rgba(230, 126, 34, 0);
-		}
-	}
-
-	.fade-in {
-		animation: fadeIn 0.4s ease-in-out forwards;
-	}
-
-	.fade-up {
-		animation: fadeUp 0.4s ease-out forwards;
-	}
-
-	.pulse {
-		animation: pulse 2s infinite;
-	}
-	
-	/* Reduced motion animations for mobile */
-	@media (max-width: 768px) {
-		@keyframes fadeIn {
-			from {
-				opacity: 0.95;
-			}
-			to {
-				opacity: 1;
-			}
-		}
-
-		@keyframes fadeUp {
-			from {
-				opacity: 0.95;
-				transform: translateY(5px);
-			}
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		@keyframes pulse {
-			0%, 100% {
-				box-shadow: 0 0 0 0 rgba(230, 126, 34, 0.2);
-			}
-			50% {
-				box-shadow: 0 0 0 4px rgba(230, 126, 34, 0);
-			}
-		}
-
-		.fade-in {
-			animation-duration: 0.3s;
-		}
-
-		.fade-up {
-			animation-duration: 0.3s;
-		}
-
-		.pulse {
-			animation-duration: 3s;
-		}
-	}
-
 	.nav-links a {
 		position: relative;
 	}
@@ -294,47 +183,6 @@ const pathname = new URL(Astro.request.url).pathname;
 		width: 100%;
 	}
 
-	.logo {
-		transition: transform 0.3s ease;
-	}
-
-	.logo:hover {
-		transform: scale(1.05);
-	}
-	
-	/* Respect user's motion preference settings */
-	@media (prefers-reduced-motion: reduce) {
-		.fade-in, .fade-up {
-			animation: none;
-			opacity: 1;
-		}
-		
-		.pulse {
-			animation: none;
-			box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
-		}
-		
-		.nav-links {
-			transition: none;
-		}
-		
-		.logo {
-			transition: none;
-		}
-		
-		.logo:hover {
-			transform: none;
-		}
-		
-		.menu-toggle span {
-			transition: none;
-		}
-		
-		.page-transition {
-			transition: none;
-		}
-	}
-
 	/* Mobile menu styles */
 	@media (max-width: 768px) {
 		.nav-links {
@@ -344,20 +192,16 @@ const pathname = new URL(Astro.request.url).pathname;
 			width: 70%;
 			height: 100vh;
 			background-color: rgba(0, 0, 0, 0.9);
-			display: flex;
+			display: none;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			gap: 2rem;
-			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.25s ease;
 			z-index: 10000;
 		}
 
 		.nav-links.show {
-			opacity: 1;
-			visibility: visible;
+			display: flex;
 		}
 
 		.nav-links a {
@@ -371,10 +215,6 @@ const pathname = new URL(Astro.request.url).pathname;
 		.menu-toggle {
 			display: flex;
 			z-index: 10001;
-		}
-
-		.menu-toggle span {
-			transition: all 0.25s ease;
 		}
 
 		.menu-toggle.active span:nth-child(1) {
@@ -392,7 +232,7 @@ const pathname = new URL(Astro.request.url).pathname;
 </style>
 
 <script>
-	// Mobile menu toggle script
+	// Mobile menu toggle script only
 	document.addEventListener('DOMContentLoaded', () => {
 		const menuToggle = document.getElementById('menu-toggle');
 		const navLinks = document.getElementById('nav-links');
@@ -412,43 +252,5 @@ const pathname = new URL(Astro.request.url).pathname;
 				});
 			});
 		}
-
-		// Page transition effect
-		const pageTransition = document.getElementById('page-transition');
-		const links = document.querySelectorAll('a[href]:not([target="_blank"])');
-		const isMobile = window.innerWidth <= 768;
-		const transitionTime = isMobile ? 100 : 150;
-		
-		links.forEach(link => {
-			link.addEventListener('click', (e) => {
-				const href = link.getAttribute('href');
-				
-				// Skip transition for anchor links or non-internal links
-				if (href && (href.startsWith('#') || href.startsWith('http'))) {
-					return;
-				}
-
-				e.preventDefault();
-
-				// Quick fade effect
-				if (pageTransition) {
-					pageTransition.style.opacity = '1';
-				}
-				
-				// Navigate quickly
-				setTimeout(() => {
-					if (href) {
-						window.location.href = href;
-					}
-				}, transitionTime);
-			});
-		});
-
-		// Fade in when page loads
-		window.addEventListener('pageshow', () => {
-			if (pageTransition) {
-				pageTransition.style.opacity = '0';
-			}
-		});
 	});
 </script>
