@@ -24,10 +24,10 @@ const pathname = new URL(Astro.request.url).pathname;
 	<body>
 		<div class="container">
 			<nav>
-				<div class="logo">
+				<a href="/" class="logo">
 					<img src="/psyclass-logo.svg" alt="Allen Consultancy" />
 					<span>Allen Consultancy</span>
-				</div>
+				</a>
 				<div class="nav-links" id="nav-links">
 					<a href="/" class={pathname === "/" ? "active" : ""}>About</a>
 					<a href="/services" class={pathname === "/services" ? "active" : ""}>Services</a>
@@ -97,6 +97,12 @@ const pathname = new URL(Astro.request.url).pathname;
 		gap: 0.5rem;
 		font-weight: bold;
 		color: var(--color-text);
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.logo:hover {
+		opacity: 0.9;
 	}
 
 	.logo img {

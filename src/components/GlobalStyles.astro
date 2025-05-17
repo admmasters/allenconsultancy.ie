@@ -38,6 +38,13 @@
     align-items: center;
     gap: 0.5rem;
     font-weight: bold;
+    color: var(--color-text);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .logo:hover {
+    opacity: 0.9;
   }
 
   .logo img {
@@ -115,4 +122,12 @@
       padding: 4rem 1.5rem;
     }
   }
+	.glow-effect {
+		animation: glow 3s infinite;
+	}
+
+    .pop-in {
+		opacity: 0;
+		animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s forwards;
+	}
 </style>
