@@ -4,19 +4,19 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="About">
 	<div class="about-container">
-		<div class="header">
+		<div class="header animate-item">
 			<h1>Independent Social Worker | Child Protection Consultant</h1>
 		</div>
 		
 		<div class="content">
-			<p>
+			<p class="animate-item">
 				Debbie Allen is an independent social worker with a specialised focus on child protection
 				and child sexual abuse prevention. Through her work, she provides services in risk
 				assessments, capacity-to-protect assessments, training, and consultation, all aimed at
 				enhancing safety and well-being for vulnerable children and families.
 			</p>
 			
-			<p>
+			<p class="animate-item">
 				Debbie is highly skilled in using both actuarial and dynamic risk assessment tools, including
 				Aim3, Stable and Acute 2007, and Risk Matrix 2000. These tools allow her to provide
 				comprehensive and evidence-based assessments that support safety planning and guide
@@ -25,14 +25,14 @@ import Layout from "../layouts/Layout.astro";
 				factors in child protection cases.
 			</p>
 			
-			<p>
+			<p class="animate-item">
 				In addition to risk assessments, Debbie conducts Capacity and Ability to Supervise and
 				Protect -Risk framework (CASP-r) assessments, evaluating the ability of parents and carers
 				to maintain a protective environment. Her work forms the foundation for creating tailored
 				safety plans that are responsive to the unique needs of each case.
 			</p>
 			
-			<p>
+			<p class="animate-item">
 				Debbie also offers consultation and training to a wide range of professionals, including social
 				workers and individuals in the voluntary sector. Her training programmes focus on enhancing
 				the use of risk assessment tools, developing effective safety strategies, and strengthening
@@ -41,14 +41,14 @@ import Layout from "../layouts/Layout.astro";
 				confidence.
 			</p>
 			
-			<p>
+			<p class="animate-item">
 				With a trauma-informed, child-centred approach, Debbie's work aims to empower
 				professionals, ensure effective protective measures, and ultimately promote safer
 				environments for children at risk.
 			</p>
 		</div>
 		
-		<div class="cta">
+		<div class="cta animate-item">
 			<a href="/contact" class="cta-button">Get in Touch</a>
 		</div>
 	</div>
@@ -106,6 +106,61 @@ import Layout from "../layouts/Layout.astro";
 		
 		.header {
 			margin-bottom: 2rem;
+		}
+	}
+
+	/* Animation styles */
+	.animate-item {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeInUp 0.4s ease-out forwards;
+	}
+
+	.animate-item:nth-child(1) { animation-delay: 0.05s; }
+	.animate-item:nth-child(2) { animation-delay: 0.1s; }
+	.animate-item:nth-child(3) { animation-delay: 0.15s; }
+	.animate-item:nth-child(4) { animation-delay: 0.2s; }
+	.animate-item:nth-child(5) { animation-delay: 0.25s; }
+	.animate-item:nth-child(6) { animation-delay: 0.3s; }
+	.animate-item:nth-child(7) { animation-delay: 0.35s; }
+
+	.content p {
+		transition: transform 0.3s ease;
+	}
+
+	.content p:hover {
+		transform: translateX(5px);
+	}
+
+	.cta-button {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.cta-button::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.2);
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+	}
+
+	.cta-button:hover::after {
+		transform: translateX(0);
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
 </style>

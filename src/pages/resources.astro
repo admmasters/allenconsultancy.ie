@@ -4,33 +4,33 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Resources">
 	<div class="resources-container">
-		<h1>Resources</h1>
+		<h1 class="title-zoom">Resources</h1>
 		
-		<div class="coming-soon">
+		<div class="coming-soon reveal">
 			<div class="coming-soon-content">
-				<h2>Resources Coming Soon</h2>
-				<p>
+				<h2 class="reveal-text">Resources Coming Soon</h2>
+				<p class="fade-in-up">
 					We're currently developing valuable resources for child protection professionals and families, including:
 				</p>
 				
 				<div class="resource-types">
-					<div class="resource-type">
+					<div class="resource-type staggered-fade">
 						<h3>1. Videos and Media</h3>
 						<p>Educational content and interviews about child protection best practices.</p>
 					</div>
 					
-					<div class="resource-type">
+					<div class="resource-type staggered-fade">
 						<h3>2. Downloads</h3>
 						<p>Useful templates, guides, and reference materials.</p>
 					</div>
 					
-					<div class="resource-type">
+					<div class="resource-type staggered-fade">
 						<h3>3. Guidance</h3>
 						<p>Professional advice and recommended approaches to common challenges.</p>
 					</div>
 				</div>
 				
-				<div class="notification">
+				<div class="notification pop-in">
 					<p>
 						Subscribe to be notified when new resources become available:
 					</p>
@@ -42,8 +42,8 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</div>
 		
-		<div class="cta">
-			<a href="/contact" class="cta-button">Contact for More Information</a>
+		<div class="cta float-up">
+			<a href="/contact" class="cta-button glow-effect">Contact for More Information</a>
 		</div>
 	</div>
 </Layout>
@@ -179,5 +179,173 @@ import Layout from "../layouts/Layout.astro";
 		.subscribe-button {
 			width: 100%;
 		}
+		
+		/* Adjust animation delays for mobile */
+		.staggered-fade:nth-child(1) {
+			animation-delay: 0.15s;
+		}
+		
+		.staggered-fade:nth-child(2) {
+			animation-delay: 0.18s;
+		}
+		
+		.staggered-fade:nth-child(3) {
+			animation-delay: 0.21s;
+		}
+		
+		.pop-in {
+			animation-delay: 0.25s;
+		}
+		
+		.float-up {
+			animation-delay: 0.3s;
+		}
+	}
+
+	/* Animation styles */
+	@keyframes titleZoom {
+		from {
+			opacity: 0;
+			transform: scale(0.8);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes reveal {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes revealText {
+		0% {
+			clip-path: inset(0 100% 0 0);
+		}
+		100% {
+			clip-path: inset(0 0 0 0);
+		}
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes popIn {
+		0% {
+			opacity: 0;
+			transform: scale(0.5);
+		}
+		70% {
+			transform: scale(1.05);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes floatUp {
+		0% {
+			opacity: 0;
+			transform: translateY(40px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes glow {
+		0% {
+			box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+		}
+		50% {
+			box-shadow: 0 0 20px rgba(230, 126, 34, 0.8);
+		}
+		100% {
+			box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+		}
+	}
+
+	.title-zoom {
+		animation: titleZoom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+	}
+
+	.reveal {
+		opacity: 0;
+		animation: reveal 0.4s ease-out 0.05s forwards;
+	}
+
+	.reveal-text {
+		display: inline-block;
+		color: var(--color-primary);
+		animation: revealText 0.4s ease-out 0.1s forwards;
+		clip-path: inset(0 100% 0 0);
+	}
+
+	.fade-in-up {
+		opacity: 0;
+		animation: fadeInUp 0.4s ease-out 0.15s forwards;
+	}
+
+	.staggered-fade {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: fadeInUp 0.4s ease-out forwards;
+	}
+
+	.staggered-fade:nth-child(1) {
+		animation-delay: 0.2s;
+	}
+
+	.staggered-fade:nth-child(2) {
+		animation-delay: 0.25s;
+	}
+
+	.staggered-fade:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+
+	.pop-in {
+		opacity: 0;
+		animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.35s forwards;
+	}
+
+	.float-up {
+		opacity: 0;
+		animation: floatUp 0.4s ease-out 0.4s forwards;
+	}
+
+	.glow-effect {
+		animation: glow 3s infinite;
+	}
+
+	.resource-type {
+		transition: transform 0.3s ease;
+	}
+
+	.resource-type:hover {
+		transform: translateX(10px);
+	}
+
+	.subscribe-form input:focus {
+		outline: 2px solid var(--color-primary);
+		transform: scale(1.02);
+		transition: transform 0.3s ease, outline 0.3s ease;
 	}
 </style>
