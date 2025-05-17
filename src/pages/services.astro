@@ -1,12 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageStyles from "../components/PageStyles.astro";
 ---
 
 <Layout title="Services">
-	<div class="services-container">
-		<h1 class="slide-in-left">Services</h1>
+	<PageStyles />
+	<div class="page-container services-container">
+		<div class="page-header">
+			<h1 class="animate-item">Services</h1>
+		</div>
 		
-		<div class="service-card slide-in-right">
+		<div class="page-content">
+			<div class="service-card animate-item">
 			<h2>1. Consultancy</h2>
 			<div class="service-content">
 				<p>

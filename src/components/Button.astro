@@ -1,0 +1,100 @@
+---
+export interface Props {
+	text: string;
+	href: string;
+	variant?: "primary" | "secondary";
+	size?: "small" | "medium" | "large";
+	animated?: boolean;
+}
+
+const {
+	text,
+	href,
+	variant = "primary",
+	size = "medium",
+	animated = true,
+} = Astro.props;
+
+const classes = [
+	"btn",
+	`btn-${variant}`,
+	`btn-${size}`,
+	animated ? "btn-animated" : "",
+].join(" ");
+---
+
+<a href={href} class={classes}>
+  {text}
+</a>
+
+<style>
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  
+  /* Variants */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+  }
+  
+  .btn-primary:hover {
+    background-color: #d35400;
+  }
+  
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 2px solid var(--color-primary);
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgba(230, 126, 34, 0.1);
+  }
+  
+  /* Sizes */
+  .btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-medium {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+  
+  /* Animation */
+  .btn-animated {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-animated::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-animated:hover::after {
+    transform: translateX(0);
+  }
+</style>

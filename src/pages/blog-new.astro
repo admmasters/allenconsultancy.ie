@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageStyles from "../components/PageStyles.astro";
+---
+
+<Layout title="Blog">
+	<PageStyles />
+	<div class="page-container blog-container">
+		<div class="page-header">
+			<h1 class="animate-item">Blog</h1>
+		</div>
+		
+		<div class="page-content">
+			<div class="coming-soon animate-item">
+				<div class="coming-soon-content">
+					<h2 class="color-shift">Blog Coming Soon</h2>
+					<p>
+						I'm excited to launch my blog soon, where I'll be sharing insights, case studies, 
+						and valuable information about child protection and safeguarding practices.
+					</p>
+					
+					<div class="blog-topics animate-item">
+						<h3>Topics I'll Be Covering:</h3>
+						<ul>
+							<li>Child protection best practices</li>
+							<li>Risk assessment methodologies</li>
+							<li>Protective capacity building for families</li>
+							<li>Professional development for social workers</li>
+							<li>Current research and innovations in child safeguarding</li>
+						</ul>
+					</div>
+					
+					<div class="notification animate-item">
+						<p>
+							Subscribe to be notified when new blog posts are published:
+						</p>
+						<form class="subscribe-form">
+							<input type="email" placeholder="Your email address" />
+							<button type="submit" class="subscribe-button">Notify Me</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="page-cta animate-item">
+			<a href="/contact" class="cta-button btn-animated">Suggest a Topic</a>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	/* Page-specific styles */
+	.coming-soon {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+		padding: 2rem;
+		backdrop-filter: blur(5px);
+	}
+
+	.color-shift {
+		color: var(--color-primary);
+		margin-bottom: 1.5rem;
+		position: relative;
+		display: inline-block;
+	}
+
+	.blog-topics {
+		margin: 2rem 0;
+	}
+
+	.blog-topics h3 {
+		color: var(--color-primary);
+		margin-bottom: 1rem;
+	}
+
+	.blog-topics ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	.blog-topics li {
+		margin-bottom: 0.5rem;
+		position: relative;
+		padding-left: 1.5rem;
+	}
+
+	.blog-topics li::before {
+		content: "→";
+		position: absolute;
+		left: 0;
+		color: var(--color-primary);
+	}
+
+	.notification {
+		margin-top: 2rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.subscribe-form {
+		display: flex;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.subscribe-form input {
+		flex: 1;
+		padding: 0.75rem;
+		border: none;
+		border-radius: 4px;
+		background-color: rgba(255, 255, 255, 0.1);
+		color: var(--color-text);
+	}
+
+	.subscribe-form input::placeholder {
+		color: rgba(255, 255, 255, 0.6);
+	}
+
+	.subscribe-button {
+		background-color: var(--color-primary);
+		color: var(--color-text);
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 4px;
+		cursor: pointer;
+		font-weight: 500;
+		transition: background-color 0.2s;
+	}
+
+	.subscribe-button:hover {
+		background-color: #d35400;
+	}
+
+	@media (max-width: 768px) {
+		.coming-soon {
+			padding: 1.5rem;
+		}
+		
+		.subscribe-form {
+			flex-direction: column;
+		}
+		
+		.subscribe-form input, 
+		.subscribe-button {
+			width: 100%;
+		}
+	}
+</style>

@@ -1,0 +1,68 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageStyles from "../components/PageStyles.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import Button from "../components/Button.astro";
+---
+
+<Layout title="Services">
+	<PageStyles />
+	<div class="page-container services-container">
+		<div class="page-header">
+			<h1 class="animate-item">Services</h1>
+		</div>
+		
+		<div class="page-content">
+			<ServiceCard title="1. Consultancy" contactInfo="For more information please contact Debbie on 085 778 4678">
+				<p>
+					Debbie provides expert consultancy services to social workers and youths, offering guidance
+					on safeguarding policies and procedures.
+				</p>
+				<p>
+					Debbie can provide 1:1 consultations to support workers to identify their next steps in safety
+					planning for children and young people, whether that is from within an organisation or their
+					own home.
+				</p>
+			</ServiceCard>
+			
+			<ServiceCard title="2. Risk Assessment">
+				<p>
+					Debbie has undergone extensive training in risk assessment tools, including AIM3, Stable &amp; 
+					Acute 2007, and Risk Matrix 2000. She applies these methodologies to conduct 
+					comprehensive risk assessments on adults and young people who have sexually harmed 
+					children. Her assessments evaluate key risk factors and provide tailored recommendations 
+					for safety planning within child protection.
+				</p>
+			</ServiceCard>
+			
+			<ServiceCard title="3. Capacity to Protect Assessment">
+				<p>
+					Debbie has successfully completed training in the Capacity and Ability to Supervise and 
+					Protect – Risk Framework (CASP-R) through McGibbon Consultancy. She utilises this 
+					framework to assess a parent's capacity to safeguard children from identified risks. These 
+					assessments evaluate the parent's protective abilities, identify areas for development, and 
+					support informed decision-making in child protection.
+				</p>
+			</ServiceCard>
+			
+			<ServiceCard title="4. Training">
+				<p>
+					Debbie offers bespoke training to all professionals working in child protection and 
+					safeguarding. Her previous trainings include Understanding and Preventing CSA and 
+					Safeguarding for Youth Organisations.
+				</p>
+			</ServiceCard>
+		</div>
+		
+		<div class="page-cta animate-item">
+			<Button text="Inquire About Services" href="/contact" variant="primary" size="medium" animated={true} />
+		</div>
+	</div>
+</Layout>
+
+<style>
+	/* Page-specific styles */
+	.services-container p {
+		margin-bottom: 1rem;
+	}
+</style>

@@ -1,0 +1,82 @@
+---
+---
+
+<style>
+  /* Page container styles */
+  .page-container {
+    padding: 2rem 0;
+  }
+
+  /* Header styles */
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Content area styles */
+  .page-content {
+    max-width: 800px;
+  }
+
+  .page-content p {
+    margin-bottom: 1.5rem;
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1.6;
+  }
+
+  /* CTA area styles */
+  .page-cta {
+    margin-top: 3rem;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .page-container {
+      padding: 1rem 0;
+    }
+    
+    .page-header {
+      margin-bottom: 2rem;
+    }
+  }
+
+  /* Export specific styles for other components to use with :global() */
+  :global(.cta-button) {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  :global(.cta-button:hover) {
+    background-color: #d35400;
+  }
+
+  :global(.cta-button::after) {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  :global(.cta-button:hover::after) {
+    transform: translateX(0);
+  }
+</style>

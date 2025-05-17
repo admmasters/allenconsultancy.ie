@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageStyles from "../components/PageStyles.astro";
+---
+
+<Layout title="Services">
+	<PageStyles />
+	<div class="page-container services-container">
+		<div class="page-header">
+			<h1 class="animate-item">Services</h1>
+		</div>
+		
+		<div class="page-content">
+			<div class="service-card animate-item">
+				<h2>1. Consultancy</h2>
+				<div class="service-content">
+					<p>
+						Debbie provides expert consultancy services to social workers and youths, offering guidance
+						on safeguarding policies and procedures.
+					</p>
+					<p>
+						Debbie can provide 1:1 consultations to support workers to identify their next steps in safety
+						planning for children and young people, whether that is from within an organisation or their
+						own home.
+					</p>
+					<p class="contact-info">
+						For more information please contact Debbie on 085 778 4678
+					</p>
+				</div>
+			</div>
+			
+			<div class="service-card animate-item">
+				<h2>2. Risk Assessment</h2>
+				<div class="service-content">
+					<p>
+						Debbie has undergone extensive training in risk assessment tools, including AIM3, Stable &amp; 
+						Acute 2007, and Risk Matrix 2000. She applies these methodologies to conduct 
+						comprehensive risk assessments on adults and young people who have sexually harmed 
+						children. Her assessments evaluate key risk factors and provide tailored recommendations 
+						for safety planning within child protection.
+					</p>
+				</div>
+			</div>
+			
+			<div class="service-card animate-item">
+				<h2>3. Capacity to Protect Assessment</h2>
+				<div class="service-content">
+					<p>
+						Debbie has successfully completed training in the Capacity and Ability to Supervise and 
+						Protect – Risk Framework (CASP-R) through McGibbon Consultancy. She utilises this 
+						framework to assess a parent's capacity to safeguard children from identified risks. These 
+						assessments evaluate the parent's protective abilities, identify areas for development, and 
+						support informed decision-making in child protection.
+					</p>
+				</div>
+			</div>
+			
+			<div class="service-card animate-item">
+				<h2>4. Training</h2>
+				<div class="service-content">
+					<p>
+						Debbie offers bespoke training to all professionals working in child protection and 
+						safeguarding. Her previous trainings include Understanding and Preventing CSA and 
+						Safeguarding for Youth Organisations.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="page-cta animate-item">
+			<a href="/contact" class="cta-button btn-animated">Inquire About Services</a>
+		</div>
+	</div>
+</Layout>
+
+<style>
+	/* Page-specific styles */
+	.service-card {
+		background-color: rgba(0, 0, 0, 0.3);
+		border-radius: 8px;
+		padding: 2rem;
+		margin-bottom: 2rem;
+		backdrop-filter: blur(5px);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	}
+
+	h2 {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		color: var(--color-primary);
+		margin-bottom: 1rem;
+		position: relative;
+		display: inline-block;
+	}
+
+	h2::after {
+		content: '';
+		position: absolute;
+		width: 0;
+		height: 2px;
+		bottom: -5px;
+		left: 0;
+		background-color: var(--color-primary);
+		transition: width 0.3s ease;
+	}
+
+	.service-card:hover h2::after {
+		width: 100%;
+	}
+
+	.service-content p {
+		margin-bottom: 1rem;
+	}
+
+	.contact-info {
+		font-weight: 500;
+		margin-top: 1.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.service-card {
+			padding: 1.5rem;
+		}
+	}
+</style>

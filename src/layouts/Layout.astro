@@ -1,4 +1,7 @@
 ---
+import GlobalStyles from "../components/GlobalStyles.astro";
+import UtilityStyles from "../components/UtilityStyles.astro";
+
 export interface Props {
 	title: string;
 }
@@ -15,6 +18,8 @@ const pathname = new URL(Astro.request.url).pathname;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | Allen Consultancy</title>
+		<GlobalStyles />
+		<UtilityStyles />
 	</head>
 	<body>
 		<div class="container">

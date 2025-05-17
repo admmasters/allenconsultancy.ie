@@ -1,22 +1,24 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PageStyles from "../components/PageStyles.astro";
 ---
 
 <Layout title="About">
-	<div class="about-container">
-		<div class="header animate-item">
+	<PageStyles />
+	<div class="page-container about-container">
+		<div class="page-header animate-item">
 			<h1>Independent Social Worker | Child Protection Consultant</h1>
 		</div>
 		
-		<div class="content">
-			<p class="animate-item">
+		<div class="page-content">
+			<p class="animate-item hover-translate">
 				Debbie Allen is an independent social worker with a specialised focus on child protection
 				and child sexual abuse prevention. Through her work, she provides services in risk
 				assessments, capacity-to-protect assessments, training, and consultation, all aimed at
 				enhancing safety and well-being for vulnerable children and families.
 			</p>
 			
-			<p class="animate-item">
+			<p class="animate-item hover-translate">
 				Debbie is highly skilled in using both actuarial and dynamic risk assessment tools, including
 				Aim3, Stable and Acute 2007, and Risk Matrix 2000. These tools allow her to provide
 				comprehensive and evidence-based assessments that support safety planning and guide
@@ -25,14 +27,14 @@ import Layout from "../layouts/Layout.astro";
 				factors in child protection cases.
 			</p>
 			
-			<p class="animate-item">
+			<p class="animate-item hover-translate">
 				In addition to risk assessments, Debbie conducts Capacity and Ability to Supervise and
 				Protect -Risk framework (CASP-r) assessments, evaluating the ability of parents and carers
 				to maintain a protective environment. Her work forms the foundation for creating tailored
 				safety plans that are responsive to the unique needs of each case.
 			</p>
 			
-			<p class="animate-item">
+			<p class="animate-item hover-translate">
 				Debbie also offers consultation and training to a wide range of professionals, including social
 				workers and individuals in the voluntary sector. Her training programmes focus on enhancing
 				the use of risk assessment tools, developing effective safety strategies, and strengthening
@@ -41,243 +43,23 @@ import Layout from "../layouts/Layout.astro";
 				confidence.
 			</p>
 			
-			<p class="animate-item">
+			<p class="animate-item hover-translate">
 				With a trauma-informed, child-centred approach, Debbie's work aims to empower
 				professionals, ensure effective protective measures, and ultimately promote safer
 				environments for children at risk.
 			</p>
 		</div>
 		
-		<div class="cta animate-item">
-			<a href="/contact" class="cta-button">Get in Touch</a>
+		<div class="page-cta animate-item">
+			<a href="/contact" class="cta-button btn-animated">Get in Touch</a>
 		</div>
 	</div>
 </Layout>
 
 <style>
-	.about-container {
-		padding: 2rem 0;
-	}
-
-	.header {
-		margin-bottom: 3rem;
-	}
-
-	h1 {
-		font-size: clamp(2rem, 5vw, 3.5rem);
-		font-weight: 500;
-		line-height: 1.2;
+	/* Page-specific styles that aren't covered by PageStyles */
+	.about-container p {
 		margin-bottom: 1.5rem;
-	}
-
-	.content {
-		max-width: 800px;
-	}
-
-	p {
-		margin-bottom: 1.5rem;
-		font-size: clamp(1rem, 1.2vw, 1.1rem);
-		line-height: 1.6;
-	}
-
-	.cta {
-		margin-top: 3rem;
-	}
-
-	.cta-button {
-		display: inline-block;
-		background-color: var(--color-primary);
-		color: var(--color-text);
-		text-decoration: none;
-		padding: 0.75rem 1.5rem;
-		border-radius: 4px;
-		font-weight: 500;
-		transition: background-color 0.2s;
-	}
-
-	.cta-button:hover {
-		background-color: #d35400;
-	}
-
-	@media (max-width: 768px) {
-		.about-container {
-			padding: 1rem 0;
-		}
-		
-		.header {
-			margin-bottom: 2rem;
-		}
-	}
-
-	/* Animation styles */
-
-	.content p {
-		transition: transform 0.3s ease;
-	}
-
-	.content p:hover {
-		transform: translateX(5px);
-	}
-
-	.cta-button {
-		position: relative;
-		overflow: hidden;
-	}
-
-	.cta-button::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: rgba(255, 255, 255, 0.2);
-		transform: translateX(-100%);
-		transition: transform 0.3s ease;
-	}
-
-	.cta-button:hover::after {
-		transform: translateX(0);
-	}
-
-	@keyframes fadeInUp {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
 	}
 </style>
-
-<style>
-	:root {
-		--color-primary: #e67e22;
-		--color-text: #ffffff;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	body {
-		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-		color: var(--color-text);
-		line-height: 1.5;
-	}
-
-	.container {
-		min-height: 100vh;
-		background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/background.jpg');
-		background-size: cover;
-		background-position: center;
-	}
-
-	nav {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 1.5rem 2rem;
-	}
-
-	.logo {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		font-weight: bold;
-	}
-
-	.logo img {
-		height: 2rem;
-	}
-
-	.nav-links {
-		display: flex;
-		gap: 2rem;
-	}
-
-	.nav-links a {
-		color: var(--color-text);
-		text-decoration: none;
-		font-size: 1rem;
-		transition: opacity 0.2s;
-	}
-
-	.nav-links a:hover {
-		opacity: 0.8;
-	}
-
-	.get-in-touch {
-		background-color: var(--color-primary);
-		color: var(--color-text);
-		border: none;
-		padding: 0.75rem 1.5rem;
-		border-radius: 4px;
-		cursor: pointer;
-		font-weight: 500;
-		transition: background-color 0.2s;
-	}
-
-	.get-in-touch:hover {
-		background-color: #d35400;
-	}
-
-	main {
-		max-width: 1200px;
-		margin: 0 auto;
-		padding: 6rem 2rem;
-	}
-
-	h1 {
-		font-size: clamp(2.5rem, 5vw, 4rem);
-		font-weight: 500;
-		line-height: 1.2;
-		margin-bottom: 2rem;
-	}
-
-	p {
-		max-width: 600px;
-		font-size: clamp(1rem, 1.5vw, 1.25rem);
-		margin-bottom: 3rem;
-		opacity: 0.9;
-	}
-
-	.scroll-indicator {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
-		opacity: 0.8;
-		animation: bounce 2s infinite;
-	}
-
-	.arrow-down {
-		margin-top: 0.5rem;
-	}
-
-	@keyframes bounce {
-		0%, 20%, 50%, 80%, 100% {
-			transform: translateY(0);
-		}
-		40% {
-			transform: translateY(-10px);
-		}
-		60% {
-			transform: translateY(-5px);
-		}
-	}
-
-	@media (max-width: 768px) {
-		.nav-links {
-			display: none;
-		}
-
-		main {
-			padding: 4rem 1.5rem;
-		}
-	}
 </style>
