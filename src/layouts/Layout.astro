@@ -98,6 +98,7 @@ const pathname = new URL(Astro.request.url).pathname;
 		align-items: center;
 		padding: 1.5rem 2rem;
 		position: relative;
+		z-index: 1000;
 	}
 
 	.logo {
@@ -265,7 +266,7 @@ const pathname = new URL(Astro.request.url).pathname;
 			align-items: center;
 			gap: 2rem;
 			transition: right 0.3s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-			z-index: 1000;
+			z-index: 10000;
 		}
 
 		.nav-links.show {
@@ -282,7 +283,7 @@ const pathname = new URL(Astro.request.url).pathname;
 
 		.menu-toggle {
 			display: flex;
-			z-index: 1001;
+			z-index: 10001;
 		}
 
 		.menu-toggle span {
@@ -334,25 +335,31 @@ const pathname = new URL(Astro.request.url).pathname;
 				const href = link.getAttribute('href');
 				
 				// Skip transition for anchor links or non-internal links
-				if (href.startsWith('#') || href.startsWith('http')) {
+				if (href && (href.startsWith('#') || href.startsWith('http'))) {
 					return;
 				}
 
 				e.preventDefault();
 
 				// Quick fade effect
-				pageTransition.style.opacity = '1';
+				if (pageTransition) {
+					pageTransition.style.opacity = '1';
+				}
 				
 				// Navigate quickly
 				setTimeout(() => {
-					window.location.href = href;
+					if (href) {
+						window.location.href = href;
+					}
 				}, 150);
 			});
 		});
 
 		// Fade in when page loads
 		window.addEventListener('pageshow', () => {
-			pageTransition.style.opacity = '0';
+			if (pageTransition) {
+				pageTransition.style.opacity = '0';
+			}
 		});
 	});
 </script>
