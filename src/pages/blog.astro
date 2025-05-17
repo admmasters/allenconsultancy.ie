@@ -4,19 +4,19 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Blog">
 	<div class="blog-container">
-		<h1>Blog</h1>
+		<h1 class="text-focus-in">Blog</h1>
 		
-		<div class="coming-soon">
+		<div class="coming-soon slide-in">
 			<div class="coming-soon-content">
-				<h2>Blog Coming Soon</h2>
-				<p>
+				<h2 class="color-shift">Blog Coming Soon</h2>
+				<p class="fade-in-delay">
 					I'm excited to launch my blog soon, where I'll be sharing insights, case studies, 
 					and valuable information about child protection and safeguarding practices.
 				</p>
 				
-				<div class="blog-topics">
+				<div class="blog-topics flip-in">
 					<h3>Topics I'll Be Covering:</h3>
-					<ul>
+					<ul class="item-animation">
 						<li>Child protection best practices</li>
 						<li>Risk assessment methodologies</li>
 						<li>Protective capacity building for families</li>
@@ -25,7 +25,7 @@ import Layout from "../layouts/Layout.astro";
 					</ul>
 				</div>
 				
-				<div class="notification">
+				<div class="notification bounce-in">
 					<p>
 						Subscribe to be notified when new blog posts are published:
 					</p>
@@ -37,7 +37,7 @@ import Layout from "../layouts/Layout.astro";
 			</div>
 		</div>
 		
-		<div class="cta">
+		<div class="cta swirl-in">
 			<a href="/contact" class="cta-button">Suggest a Topic</a>
 		</div>
 	</div>
@@ -176,5 +176,176 @@ import Layout from "../layouts/Layout.astro";
 		.subscribe-button {
 			width: 100%;
 		}
+		
+		/* Adjust animation delays for mobile */
+		.item-animation li:nth-child(1) { animation-delay: 0.15s; }
+		.item-animation li:nth-child(2) { animation-delay: 0.18s; }
+		.item-animation li:nth-child(3) { animation-delay: 0.21s; }
+		.item-animation li:nth-child(4) { animation-delay: 0.24s; }
+		.item-animation li:nth-child(5) { animation-delay: 0.27s; }
+	}
+
+	/* Animation styles */
+	@keyframes textFocusIn {
+		0% {
+			filter: blur(12px);
+			opacity: 0;
+		}
+		100% {
+			filter: blur(0px);
+			opacity: 1;
+		}
+	}
+
+	@keyframes slideIn {
+		0% {
+			opacity: 0;
+			transform: translateX(-100px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes colorShift {
+		0% {
+			opacity: 0;
+			color: var(--color-text);
+		}
+		100% {
+			opacity: 1;
+			color: var(--color-primary);
+		}
+	}
+
+	@keyframes fadeInDelay {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes flipIn {
+		0% {
+			opacity: 0;
+			transform: rotateX(-90deg);
+		}
+		100% {
+			opacity: 1;
+			transform: rotateX(0);
+		}
+	}
+
+	@keyframes bounceIn {
+		0% {
+			opacity: 0;
+			transform: scale(0.3);
+		}
+		50% {
+			opacity: 1;
+			transform: scale(1.05);
+		}
+		70% {
+			transform: scale(0.9);
+		}
+		100% {
+			transform: scale(1);
+		}
+	}
+
+	@keyframes swirlIn {
+		0% {
+			opacity: 0;
+			transform: rotate(-540deg) scale(0);
+		}
+		100% {
+			opacity: 1;
+			transform: rotate(0) scale(1);
+		}
+	}
+
+	.text-focus-in {
+		animation: textFocusIn 0.4s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	}
+
+	.slide-in {
+		opacity: 0;
+		animation: slideIn 0.4s ease-out 0.05s forwards;
+	}
+
+	.color-shift {
+		animation: colorShift 0.4s ease-out 0.1s forwards;
+		opacity: 0;
+	}
+
+	.fade-in-delay {
+		opacity: 0;
+		animation: fadeInDelay 0.4s ease 0.15s forwards;
+	}
+
+	.flip-in {
+		opacity: 0;
+		transform-origin: top;
+		animation: flipIn 0.4s ease-out 0.2s forwards;
+	}
+
+	.bounce-in {
+		opacity: 0;
+		animation: bounceIn 0.4s ease 0.25s forwards;
+	}
+
+	.swirl-in {
+		opacity: 0;
+		animation: swirlIn 0.4s ease-out 0.3s forwards;
+	}
+
+	.item-animation li {
+		opacity: 0;
+		transform: translateX(-20px);
+		animation: fadeInDelay 0.4s ease forwards;
+	}
+
+	.item-animation li:nth-child(1) { animation-delay: 0.22s; }
+	.item-animation li:nth-child(2) { animation-delay: 0.24s; }
+	.item-animation li:nth-child(3) { animation-delay: 0.26s; }
+	.item-animation li:nth-child(4) { animation-delay: 0.28s; }
+	.item-animation li:nth-child(5) { animation-delay: 0.3s; }
+
+	/* Interactive animations */
+	.coming-soon {
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.coming-soon:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+	}
+
+	.subscribe-button {
+		position: relative;
+		overflow: hidden;
+	}
+
+	.subscribe-button::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(255, 255, 255, 0.2),
+			transparent
+		);
+		transition: 0.3s;
+	}
+
+	.subscribe-button:hover::before {
+		left: 100%;
 	}
 </style>
