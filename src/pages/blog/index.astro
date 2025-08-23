@@ -1,0 +1,364 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ComingSoonSection from "../../components/sections/ComingSoonSection.astro";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+];
+---
+
+<ContentLayout
+  title="Insights & Updates | Allen Consultancy Blog"
+  description="Professional insights, updates, and expertise in child protection and social work practice. Coming soon."
+  pageTitle="Professional Insights & Updates"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Blog Introduction -->
+  <section class="blog-intro section">
+    <div class="container">
+      <div class="blog-intro__content">
+        <p class="blog-intro__lead">
+          Stay informed with professional insights, case study discussions, and
+          updates on best practices in child protection and social work. Our
+          blog will feature evidence-based content to support your professional
+          development.
+        </p>
+        <div class="blog-intro__features">
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">📝</span>
+            <span class="feature-item__text">Professional Insights</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">📊</span>
+            <span class="feature-item__text">Case Studies</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">🔄</span>
+            <span class="feature-item__text">Regular Updates</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Section -->
+  <section class="blog-coming-soon section">
+    <div class="container">
+      <div class="blog-coming-soon__content">
+        <ComingSoonSection
+          title="Professional Blog"
+          description="We're preparing a comprehensive blog featuring professional insights, evidence-based practices, and updates in child protection and social work. Content will include case study discussions, assessment technique guides, and professional development resources."
+          expectedDate="Q2 2025"
+          notifyLink="/contact"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section class="blog-preview section">
+    <div class="container">
+      <div class="blog-preview__content">
+        <h2 class="blog-preview__title">What You Can Expect</h2>
+        <div class="blog-preview__grid">
+          <div class="preview-item">
+            <div class="preview-item__header">
+              <span class="preview-item__icon" aria-hidden="true">🎯</span>
+              <h3 class="preview-item__title">Assessment Techniques</h3>
+            </div>
+            <p class="preview-item__description">
+              In-depth discussions on risk assessment methodologies, including
+              practical applications of AIM3, CASP-R, and other evidence-based
+              frameworks.
+            </p>
+          </div>
+
+          <div class="preview-item">
+            <div class="preview-item__header">
+              <span class="preview-item__icon" aria-hidden="true">🛡️</span>
+              <h3 class="preview-item__title">Safeguarding Best Practices</h3>
+            </div>
+            <p class="preview-item__description">
+              Guidance on implementing effective safeguarding measures, policy
+              development, and creating protective environments for children and
+              young people.
+            </p>
+          </div>
+
+          <div class="preview-item">
+            <div class="preview-item__header">
+              <span class="preview-item__icon" aria-hidden="true">📚</span>
+              <h3 class="preview-item__title">Professional Development</h3>
+            </div>
+            <p class="preview-item__description">
+              Resources for continuing professional development, training
+              insights, and updates on emerging practices in child protection
+              work.
+            </p>
+          </div>
+
+          <div class="preview-item">
+            <div class="preview-item__header">
+              <span class="preview-item__icon" aria-hidden="true">🔍</span>
+              <h3 class="preview-item__title">Case Study Analysis</h3>
+            </div>
+            <p class="preview-item__description">
+              Anonymized case discussions highlighting decision-making
+              processes, assessment outcomes, and lessons learned from complex
+              situations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="blog-cta section">
+    <div class="container">
+      <div class="blog-cta__content">
+        <h2 class="blog-cta__title">Stay Connected</h2>
+        <p class="blog-cta__description">
+          Be the first to know when our professional blog launches. Contact us
+          to join our network and receive updates on new content and insights.
+        </p>
+        <div class="blog-cta__actions">
+          <a href="/contact" class="btn btn--primary btn--large">
+            Get Notified
+          </a>
+          <p class="blog-cta__note">
+            Currently available for consultation and training services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  /* Blog Introduction */
+  .blog-intro {
+    background: #f8fafc;
+  }
+
+  .blog-intro__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .blog-intro__lead {
+    font-size: 1.125rem;
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .blog-intro__features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .feature-item__icon {
+    font-size: 2rem;
+  }
+
+  .feature-item__text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* Blog Coming Soon */
+  .blog-coming-soon {
+    background: #ffffff;
+  }
+
+  .blog-coming-soon__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Blog Preview */
+  .blog-preview {
+    background: #f8fafc;
+  }
+
+  .blog-preview__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .blog-preview__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3rem;
+  }
+
+  .blog-preview__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .preview-item {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+  }
+
+  .preview-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #1d4ed8;
+  }
+
+  .preview-item__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .preview-item__icon {
+    font-size: 1.5rem;
+  }
+
+  .preview-item__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+
+  .preview-item__description {
+    color: #4b5563;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Blog CTA */
+  .blog-cta {
+    background: #1e40af;
+    color: #ffffff;
+  }
+
+  .blog-cta__content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .blog-cta__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .blog-cta__description {
+    font-size: 1.125rem;
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .blog-cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .blog-cta__note {
+    color: #e0e7ff;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .blog-preview__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .blog-preview__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-intro__features {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .feature-item__icon {
+      font-size: 1.5rem;
+    }
+
+    .preview-item {
+      padding: 1.5rem;
+    }
+
+    .preview-item__header {
+      flex-direction: column;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+    .blog-preview__title {
+      font-size: 1.5rem;
+    }
+
+    .blog-cta__title {
+      font-size: 1.5rem;
+    }
+
+    .blog-cta__description {
+      font-size: 1rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .preview-item {
+      border-width: 2px;
+    }
+
+    .preview-item:hover {
+      border-width: 3px;
+    }
+
+    .blog-cta {
+      background: #1e3a8a;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .preview-item {
+      transition: none;
+    }
+  }
+</style>

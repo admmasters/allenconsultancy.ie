@@ -1,0 +1,172 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  ogImage?: string;
+  bodyClass?: string;
+  pageTitle: string;
+  breadcrumbs?: Array<{ label: string; href: string }>;
+  showPageHeader?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  noindex,
+  ogImage,
+  bodyClass = "",
+  pageTitle,
+  breadcrumbs = [],
+  showPageHeader = true,
+} = Astro.props;
+
+// Generate breadcrumb structured data
+const breadcrumbStructuredData =
+  breadcrumbs.length > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: crumb.label,
+          item: Astro.site
+            ? new URL(crumb.href, Astro.site).toString()
+            : `https://allenconsultancy.ie${crumb.href}`,
+        })),
+      }
+    : null;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  noindex={noindex}
+  ogImage={ogImage}
+  bodyClass={bodyClass}
+>
+  {
+    showPageHeader && (
+      <section class="page-header section--small">
+        <div class="container">
+          {breadcrumbs.length > 0 && (
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+              <ol class="breadcrumbs__list">
+                {breadcrumbs.map((crumb, index) => (
+                  <li class="breadcrumbs__item">
+                    {index < breadcrumbs.length - 1 ? (
+                      <a href={crumb.href} class="breadcrumbs__link">
+                        {crumb.label}
+                      </a>
+                    ) : (
+                      <span class="breadcrumbs__current" aria-current="page">
+                        {crumb.label}
+                      </span>
+                    )}
+                    {index < breadcrumbs.length - 1 && (
+                      <span class="breadcrumbs__separator" aria-hidden="true">
+                        /
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )}
+          <h1 class="text-headline page-header__title">{pageTitle}</h1>
+        </div>
+      </section>
+    )
+  }
+
+  <slot />
+
+  {
+    breadcrumbStructuredData && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(breadcrumbStructuredData)}
+      />
+    )
+  }
+</BaseLayout>
+
+<style>
+  /* Page Header Styles */
+  .page-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .page-header__title {
+    color: #111827;
+    margin-bottom: 0;
+  }
+
+  /* Breadcrumbs Styles */
+  .breadcrumbs {
+    margin-bottom: 1.5rem;
+  }
+
+  .breadcrumbs__list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .breadcrumbs__item {
+    display: flex;
+    align-items: center;
+  }
+
+  .breadcrumbs__link {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .breadcrumbs__link:hover,
+  .breadcrumbs__link:focus {
+    color: #1d4ed8;
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .breadcrumbs__current {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .breadcrumbs__separator {
+    margin: 0 0.5rem;
+    color: #9ca3af;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .breadcrumbs__list {
+      font-size: 0.75rem;
+    }
+
+    .breadcrumbs__separator {
+      margin: 0 0.25rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .page-header {
+      border-bottom-width: 2px;
+    }
+  }
+</style>

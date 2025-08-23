@@ -1,0 +1,220 @@
+/* Professional theme variables */
+:root {
+  /* Professional color palette */
+  --allen-primary: #1e40af; /* Professional blue */
+  --allen-primary-dark: #1e3a8a;
+  --allen-primary-light: #3b82f6;
+
+  --allen-secondary: #64748b; /* Professional gray */
+  --allen-secondary-dark: #475569;
+  --allen-secondary-light: #94a3b8;
+
+  --allen-accent: #059669; /* Trust green */
+  --allen-warning: #d97706; /* Professional orange */
+  --allen-error: #dc2626; /* Professional red */
+
+  /* Professional typography */
+  --allen-font-family:
+    system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --allen-font-size-base: 16px;
+  --allen-line-height-base: 1.6;
+
+  /* Professional spacing */
+  --allen-spacing-xs: 0.25rem;
+  --allen-spacing-sm: 0.5rem;
+  --allen-spacing-md: 1rem;
+  --allen-spacing-lg: 1.5rem;
+  --allen-spacing-xl: 2rem;
+  --allen-spacing-2xl: 3rem;
+
+  /* Professional shadows */
+  --allen-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --allen-shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --allen-shadow-lg:
+    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Professional borders */
+  --allen-border-radius: 0.5rem;
+  --allen-border-width: 1px;
+  --allen-border-color: rgb(229 231 235);
+}
+
+/* Base styles for professional appearance */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--allen-font-family);
+  font-size: var(--allen-font-size-base);
+  line-height: var(--allen-line-height-base);
+  color: rgb(17 24 39); /* gray-900 */
+  background-color: rgb(249 250 251); /* gray-50 */
+  margin: 0;
+  padding: 0;
+}
+
+/* Professional link styles */
+a {
+  color: var(--allen-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--allen-primary-dark);
+}
+
+a:focus {
+  outline: 2px solid var(--allen-primary);
+  outline-offset: 2px;
+}
+
+/* Professional heading styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: rgb(17 24 39); /* gray-900 */
+  margin: 0 0 var(--allen-spacing-md) 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.25rem; /* 36px */
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.875rem; /* 30px */
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+}
+
+h4 {
+  font-size: 1.25rem; /* 20px */
+}
+
+/* Professional paragraph styles */
+p {
+  margin: 0 0 var(--allen-spacing-md) 0;
+}
+
+/* Professional list styles */
+ul,
+ol {
+  margin: 0 0 var(--allen-spacing-md) 0;
+  padding-left: var(--allen-spacing-lg);
+}
+
+li {
+  margin-bottom: var(--allen-spacing-xs);
+  color: rgb(75 85 99); /* gray-600 */
+}
+
+/* Professional form styles */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  border: var(--allen-border-width) solid var(--allen-border-color);
+  border-radius: var(--allen-border-radius);
+  padding: 0.75rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--allen-primary);
+  box-shadow: 0 0 0 3px rgb(59 130 246 / 0.1);
+}
+
+/* Professional button base styles */
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--allen-border-radius);
+  padding: 0.75rem 1.5rem;
+  transition: all 0.2s ease;
+}
+
+/* Utility classes for professional design */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section {
+  padding: var(--allen-spacing-2xl) 0;
+}
+
+.section--large {
+  padding: 4rem 0;
+}
+
+.section--small {
+  padding: var(--allen-spacing-xl) 0;
+}
+
+/* Professional animation classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Professional responsive utilities */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  .section {
+    padding: var(--allen-spacing-xl) 0;
+  }
+}
