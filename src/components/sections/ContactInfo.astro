@@ -1,0 +1,302 @@
+---
+export interface Props {
+  showTitle?: boolean;
+  layout?: "vertical" | "horizontal";
+  includeEmail?: boolean;
+}
+
+const {
+  showTitle = true,
+  layout = "vertical",
+  includeEmail = true,
+} = Astro.props;
+
+const contactData = {
+  phone: {
+    display: "085 778 4678",
+    href: "tel:+353857784678",
+    primary: true,
+  },
+  emails: [
+    {
+      address: "info@allenconsultancy.ie",
+      label: "General Inquiries",
+      primary: true,
+    },
+    {
+      address: "iswdallen@gmail.com",
+      label: "Alternative Contact",
+      primary: false,
+    },
+  ],
+  businessHours: "Monday - Friday, 9:00 AM - 5:00 PM",
+  responseTime: "Typically responds within 24 hours",
+};
+---
+
+<div class={`contact-info contact-info--${layout}`}>
+  {
+    showTitle && (
+      <div class="contact-info__header">
+        <h2 class="contact-info__title">Get in Touch</h2>
+        <p class="contact-info__subtitle">
+          Ready to discuss your consultation needs? Contact Debbie Allen
+          directly.
+        </p>
+      </div>
+    )
+  }
+
+  <div class="contact-info__content">
+    <div class="contact-info__section">
+      <h3 class="contact-info__section-title">
+        <span class="contact-info__icon" aria-hidden="true">📞</span>
+        Phone
+      </h3>
+      <div class="contact-info__item">
+        <a
+          href={contactData.phone.href}
+          class="contact-info__link contact-info__link--primary"
+          aria-label={`Call ${contactData.phone.display}`}
+        >
+          {contactData.phone.display}
+        </a>
+        <p class="contact-info__note">
+          Primary contact method for urgent inquiries
+        </p>
+      </div>
+    </div>
+
+    {
+      includeEmail && (
+        <div class="contact-info__section">
+          <h3 class="contact-info__section-title">
+            <span class="contact-info__icon" aria-hidden="true">
+              ✉️
+            </span>
+            Email
+          </h3>
+          <div class="contact-info__emails">
+            {contactData.emails.map((email) => (
+              <div class="contact-info__item">
+                <a
+                  href={`mailto:${email.address}`}
+                  class={`contact-info__link ${email.primary ? "contact-info__link--primary" : ""}`}
+                  aria-label={`Email ${email.address} for ${email.label}`}
+                >
+                  {email.address}
+                </a>
+                <p class="contact-info__note">
+                  {email.label}
+                  {email.primary && " (Preferred)"}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <div class="contact-info__section">
+      <h3 class="contact-info__section-title">
+        <span class="contact-info__icon" aria-hidden="true">🕒</span>
+        Availability
+      </h3>
+      <div class="contact-info__item">
+        <p class="contact-info__text">{contactData.businessHours}</p>
+        <p class="contact-info__note">{contactData.responseTime}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-info__footer">
+    <p class="contact-info__disclaimer">
+      All consultations are conducted with strict confidentiality and in
+      accordance with professional social work standards.
+    </p>
+  </div>
+</div>
+
+<style>
+  /* Contact Info Styles */
+  .contact-info {
+    background: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+
+  .contact-info--vertical {
+    padding: 2rem;
+  }
+
+  .contact-info--horizontal .contact-info__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact-info__header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .contact-info__title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info__subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .contact-info__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .contact-info__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-info__section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-info__icon {
+    font-size: 1.25rem;
+  }
+
+  .contact-info__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .contact-info__emails {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-info__link {
+    color: #1d4ed8;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+  }
+
+  .contact-info__link--primary {
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .contact-info__link:hover,
+  .contact-info__link:focus {
+    color: #1e40af;
+    background: #eff6ff;
+    padding-left: 0.5rem;
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+  }
+
+  .contact-info__text {
+    color: #374151;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .contact-info__note {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .contact-info__footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .contact-info__disclaimer {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    .contact-info--horizontal {
+      padding: 2rem;
+    }
+
+    .contact-info--horizontal .contact-info__content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-info__emails {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .contact-info--horizontal .contact-info__content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .contact-info {
+      padding: 1.5rem;
+    }
+
+    .contact-info__title {
+      font-size: 1.5rem;
+    }
+
+    .contact-info__emails {
+      gap: 1rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .contact-info {
+      border-width: 2px;
+    }
+
+    .contact-info__link:hover,
+    .contact-info__link:focus {
+      background: #ffffff;
+      border: 2px solid #1d4ed8;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .contact-info__link {
+      transition: none;
+    }
+  }
+</style>

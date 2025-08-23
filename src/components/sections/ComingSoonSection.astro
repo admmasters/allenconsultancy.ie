@@ -1,0 +1,185 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  expectedDate?: string;
+  notifyLink?: string;
+}
+
+const { title, description, expectedDate, notifyLink } = Astro.props;
+---
+
+<div
+  class="coming-soon"
+  role="region"
+  aria-labelledby={`coming-soon-${title.toLowerCase().replace(/\s+/g, "-")}`}
+>
+  <div class="coming-soon__icon" aria-hidden="true">🚧</div>
+
+  <h3
+    class="coming-soon__title"
+    id={`coming-soon-${title.toLowerCase().replace(/\s+/g, "-")}`}
+  >
+    {title}
+  </h3>
+
+  <p class="coming-soon__description">
+    {description}
+  </p>
+
+  {
+    expectedDate && (
+      <p class="coming-soon__date">
+        <strong>Expected:</strong> {expectedDate}
+      </p>
+    )
+  }
+
+  <div class="coming-soon__status">
+    <span class="coming-soon__badge" aria-label={`${title} is coming soon`}>
+      Coming Soon
+    </span>
+  </div>
+
+  {
+    notifyLink && (
+      <div class="coming-soon__action">
+        <a
+          href={notifyLink}
+          class="coming-soon__notify-link"
+          aria-label={`Get notified when ${title} is available`}
+        >
+          Notify Me When Available
+        </a>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  /* Coming Soon Section Styles */
+  .coming-soon {
+    background: #f8fafc;
+    border: 2px dashed #d1d5db;
+    border-radius: 0.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #6b7280;
+    transition: all 0.2s ease;
+  }
+
+  .coming-soon:hover {
+    border-color: #9ca3af;
+    background: #f1f5f9;
+  }
+
+  .coming-soon__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .coming-soon__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+
+  .coming-soon__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .coming-soon__date {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-soon__status {
+    margin-bottom: 1.5rem;
+  }
+
+  .coming-soon__badge {
+    display: inline-block;
+    background: #e5e7eb;
+    color: #374151;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: 1px solid #d1d5db;
+  }
+
+  .coming-soon__action {
+    margin-top: 1.5rem;
+  }
+
+  .coming-soon__notify-link {
+    display: inline-block;
+    color: #1d4ed8;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #1d4ed8;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+    font-size: 0.875rem;
+  }
+
+  .coming-soon__notify-link:hover,
+  .coming-soon__notify-link:focus {
+    background: #1d4ed8;
+    color: #ffffff;
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .coming-soon {
+      padding: 2rem 1.5rem;
+    }
+
+    .coming-soon__icon {
+      font-size: 2.5rem;
+    }
+
+    .coming-soon__title {
+      font-size: 1.25rem;
+    }
+
+    .coming-soon__description {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .coming-soon {
+      border-width: 3px;
+      background: #ffffff;
+    }
+
+    .coming-soon__badge {
+      border-width: 2px;
+      background: #ffffff;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .coming-soon {
+      transition: none;
+    }
+
+    .coming-soon__notify-link {
+      transition: none;
+    }
+  }
+</style>

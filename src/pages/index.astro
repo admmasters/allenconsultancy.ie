@@ -1,65 +1,405 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PageStyles from "../components/PageStyles.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Credentials from "../components/sections/Credentials.astro";
 ---
 
-<Layout title="About">
-	<PageStyles />
-	<div class="page-container about-container">
-		<div class="page-header animate-item">
-			<h1>Independent Social Worker | Child Protection Consultant</h1>
-		</div>
-		
-		<div class="page-content">
-			<p class="animate-item hover-translate">
-				Debbie Allen is an independent social worker with a specialised focus on child protection
-				and child sexual abuse prevention. Through her work, she provides services in risk
-				assessments, capacity-to-protect assessments, training, and consultation, all aimed at
-				enhancing safety and well-being for vulnerable children and families.
-			</p>
-			
-			<p class="animate-item hover-translate">
-				Debbie is highly skilled in using both actuarial and dynamic risk assessment tools, including
-				Aim3, Stable and Acute 2007, and Risk Matrix 2000. These tools allow her to provide
-				comprehensive and evidence-based assessments that support safety planning and guide
-				effective interventions. Her approach includes evaluating both static (actuarial) and evolving
-				(dynamic) risk factors, ensuring a thorough understanding of potential risks and protective
-				factors in child protection cases.
-			</p>
-			
-			<p class="animate-item hover-translate">
-				In addition to risk assessments, Debbie conducts Capacity and Ability to Supervise and
-				Protect -Risk framework (CASP-r) assessments, evaluating the ability of parents and carers
-				to maintain a protective environment. Her work forms the foundation for creating tailored
-				safety plans that are responsive to the unique needs of each case.
-			</p>
-			
-			<p class="animate-item hover-translate">
-				Debbie also offers consultation and training to a wide range of professionals, including social
-				workers and individuals in the voluntary sector. Her training programmes focus on enhancing
-				the use of risk assessment tools, developing effective safety strategies, and strengthening
-				collaboration across sectors. Debbie is committed to building the capacity of professionals to
-				manage complex child protection and sexual abuse prevention cases with expertise and
-				confidence.
-			</p>
-			
-			<p class="animate-item hover-translate">
-				With a trauma-informed, child-centred approach, Debbie's work aims to empower
-				professionals, ensure effective protective measures, and ultimately promote safer
-				environments for children at risk.
-			</p>
-		</div>
-		
-		<div class="page-cta animate-item">
-			<a href="/contact" class="cta-button btn-animated">Get in Touch</a>
-		</div>
-	</div>
-</Layout>
+<BaseLayout
+  title="About Me | Independent Social Worker & Child Protection Consultant"
+  description="Meet Debbie Allen, an experienced independent social worker specialising in child protection consultation, risk assessments, and safeguarding services across Ireland."
+>
+  <!-- Hero Section -->
+  <section class="hero section--large">
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1 class="text-display hero__title">
+            Independent Social Worker &
+            <span class="hero__title-accent">Child Protection Consultant</span>
+          </h1>
+          <p class="text-body hero__description">
+            Expert consultation and assessment services specialising in child
+            protection, risk evaluation, and safeguarding practices. Serving
+            organisations across Ireland with trauma-informed, evidence-based
+            approaches.
+          </p>
+          <div class="hero__actions">
+            <a href="/services" class="btn btn--primary btn--large">
+              View Services
+            </a>
+            <a href="/contact" class="btn btn--secondary btn--large">
+              Get in Touch
+            </a>
+          </div>
+        </div>
+        <div class="hero__image">
+          <img
+            src="/images/debbie-profile.jpg"
+            alt="Debbie Allen, Independent Social Worker and Child Protection Consultant"
+            class="hero__photo"
+            width="400"
+            height="400"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section">
+    <div class="container">
+      <div class="about__content">
+        <div class="about__intro">
+          <h2 class="text-headline">About Debbie Allen</h2>
+          <p class="text-body about__lead">
+            I am an experienced independent social worker with specialised
+            expertise in child protection and child sexual abuse prevention. My
+            practice focuses on providing high-quality consultation, assessment,
+            and training services to organisations working to safeguard children
+            and young people.
+          </p>
+        </div>
+
+        <div class="about__expertise">
+          <h3 class="text-title">Core Expertise</h3>
+          <div class="expertise-grid">
+            <div class="expertise-item">
+              <h4 class="expertise-item__title">Risk Assessment Tools</h4>
+              <ul class="expertise-item__list">
+                <li>AIM3 Assessment Framework</li>
+                <li>Stable and Acute 2007</li>
+                <li>Risk Matrix 2000</li>
+              </ul>
+            </div>
+            <div class="expertise-item">
+              <h4 class="expertise-item__title">Specialised Assessments</h4>
+              <ul class="expertise-item__list">
+                <li>CASP-r Assessment Capabilities</li>
+                <li>Capacity to Protect Evaluations</li>
+                <li>Comprehensive Risk Assessments</li>
+              </ul>
+            </div>
+            <div class="expertise-item">
+              <h4 class="expertise-item__title">Professional Services</h4>
+              <ul class="expertise-item__list">
+                <li>Training and Consultation</li>
+                <li>Policy Development</li>
+                <li>Safeguarding Guidance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__approach">
+          <h3 class="text-title">Professional Approach</h3>
+          <p class="text-body">
+            My work is grounded in a <strong
+              >trauma-informed, child-centered approach</strong
+            >
+            that prioritizes the safety and wellbeing of children and young people.
+            I believe in evidence-based practice, collaborative working, and the
+            importance of continuous professional development in this rapidly evolving
+            field.
+          </p>
+          <p class="text-body">
+            Whether you need expert consultation on complex cases, comprehensive
+            risk assessments, or specialised training for your team, I provide
+            professional, reliable services tailored to your organisation's
+            specific needs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Registrations & Memberships -->
+  <Credentials size="medium" layout="horizontal" />
+
+  <!-- Call to Action Section -->
+  <section class="cta section">
+    <div class="container">
+      <div class="cta__content">
+        <h2 class="text-headline cta__title">Ready to Work Together?</h2>
+        <p class="text-body cta__description">
+          Contact me to discuss your consultation needs, arrange an assessment,
+          or explore training opportunities for your organisation.
+        </p>
+        <div class="cta__actions">
+          <a href="/contact" class="btn btn--primary btn--large">
+            Get in Touch
+          </a>
+          <div class="cta__contact-info">
+            <p class="cta__contact-item">
+              <strong>Phone:</strong>
+              <a href="tel:+353857784678">085 778 4678</a>
+            </p>
+            <p class="cta__contact-item">
+              <strong>Email:</strong>
+              <a href="mailto:info@allenconsultancy.ie"
+                >info@allenconsultancy.ie</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
 
 <style>
-	/* Page-specific styles that aren't covered by PageStyles */
-	.about-container p {
-		margin-bottom: 1.5rem;
-	}
-</style>
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+
+  /* Hero Section - Accessible styling */
+  .hero {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    padding: 4rem 0;
+  }
+
+  .hero__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .hero__title {
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .hero__title-accent {
+    color: #1d4ed8; /* Higher contrast blue */
+  }
+
+  .hero__description {
+    font-size: 1.25rem;
+    color: #374151; /* Higher contrast gray */
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero__image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__photo {
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 3px solid #e5e7eb;
+  }
+
+  /* About Section */
+  .about {
+    background: #ffffff;
+    padding: 4rem 0;
+  }
+
+  .about__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .about__content > * + * {
+    margin-top: 3rem;
+  }
+
+  .about__lead {
+    font-size: 1.125rem;
+    color: #1f2937; /* Higher contrast */
+    line-height: 1.7;
+  }
+
+  /* Expertise Grid */
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .expertise-item {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+  }
+
+  .expertise-item__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827; /* Maximum contrast */
+    margin-bottom: 1rem;
+  }
+
+  .expertise-item__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .expertise-item__list > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .expertise-item__list li {
+    color: #1f2937; /* Higher contrast */
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .expertise-item__list li::before {
+    content: "•";
+    color: #1d4ed8;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+
+  /* Call to Action Section - High contrast */
+  .cta {
+    background: #1e40af; /* Darker blue for better contrast */
+    color: #ffffff;
+    padding: 4rem 0;
+  }
+
+  .cta__content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .cta__title {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta__description {
+    color: #ffffff; /* Pure white for maximum contrast */
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cta__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: #ffffff; /* Pure white for maximum contrast */
+  }
+
+  .cta__contact-item {
+    font-size: 1rem;
+  }
+
+  .cta__contact-item a {
+    color: #ffffff;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .cta__contact-item a:hover,
+  .cta__contact-item a:focus {
+    color: #ffffff;
+    text-decoration-color: currentColor;
+    outline: 3px solid #fbbf24; /* High contrast yellow outline */
+    outline-offset: 2px;
+    border-radius: 2px;
+    background: rgba(
+      255,
+      255,
+      255,
+      0.1
+    ); /* Subtle background for better visibility */
+    padding: 0.25rem 0.5rem;
+  }
+
+  /* Responsive adjustments */
+  @media (min-width: 640px) {
+    .hero__actions {
+      flex-direction: row;
+    }
+
+    .cta__contact-info {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .expertise-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero__content {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hero__image {
+      justify-content: flex-end;
+    }
+  }
+
+  /* Focus states for accessibility */
+  .btn:focus,
+  .hero__actions a:focus {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .hero__title-accent {
+      color: #1e3a8a;
+    }
+
+    .credential-card {
+      border-width: 2px;
+    }
+
+    .cta {
+      background: #1e3a8a;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .credential-card {
+      transition: none;
+    }
+
+    .cta__contact-item a {
+      transition: none;
+    }
+  }
 </style>

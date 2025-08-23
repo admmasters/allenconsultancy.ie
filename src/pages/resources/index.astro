@@ -1,0 +1,344 @@
+---
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ComingSoonSection from "../../components/sections/ComingSoonSection.astro";
+
+const breadcrumbs = [
+  { label: "Home", href: "/" },
+  { label: "Resources", href: "/resources" },
+];
+
+const resourceSections = [
+  {
+    title: "Videos and Media",
+    description:
+      "Educational videos, webinars, and multimedia resources covering child protection best practices, assessment techniques, and professional development content.",
+    expectedDate: "Q2 2025",
+  },
+  {
+    title: "Downloads",
+    description:
+      "Downloadable resources including assessment templates, policy guidelines, safety planning tools, and professional reference materials.",
+    expectedDate: "Q2 2025",
+  },
+  {
+    title: "Guidance",
+    description:
+      "Professional guidance documents, best practice guidelines, and evidence-based recommendations for child protection and safeguarding work.",
+    expectedDate: "Q3 2025",
+  },
+];
+---
+
+<ContentLayout
+  title="Resources & Guidance | Allen Consultancy"
+  description="Professional resources, training materials, and guidance for child protection and social work professionals. Coming soon."
+  pageTitle="Professional Resources"
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Resources Introduction -->
+  <section class="resources-intro section">
+    <div class="container">
+      <div class="resources-intro__content">
+        <p class="resources-intro__lead">
+          We're developing a comprehensive library of professional resources to
+          support social workers, child protection professionals, and
+          organisations in their safeguarding work. These resources will include
+          practical tools, educational materials, and evidence-based guidance.
+        </p>
+        <div class="resources-intro__features">
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">📚</span>
+            <span class="feature-item__text">Evidence-Based Content</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">🎯</span>
+            <span class="feature-item__text">Practical Tools</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-item__icon" aria-hidden="true">👥</span>
+            <span class="feature-item__text">Professional Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coming Soon Sections -->
+  <section class="resources-sections section">
+    <div class="container">
+      <div class="resources-sections__grid">
+        {
+          resourceSections.map((section) => (
+            <ComingSoonSection
+              title={section.title}
+              description={section.description}
+              expectedDate={section.expectedDate}
+              notifyLink="/contact"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Preview -->
+  <section class="resources-preview section">
+    <div class="container">
+      <div class="resources-preview__content">
+        <h2 class="resources-preview__title">What to Expect</h2>
+        <div class="resources-preview__grid">
+          <div class="preview-item">
+            <h3 class="preview-item__title">Assessment Tools</h3>
+            <p class="preview-item__description">
+              Templates and frameworks for conducting comprehensive risk
+              assessments and capacity evaluations using evidence-based
+              methodologies.
+            </p>
+          </div>
+          <div class="preview-item">
+            <h3 class="preview-item__title">Training Materials</h3>
+            <p class="preview-item__description">
+              Educational content, presentation slides, and workshop materials
+              for professional development and organisational training
+              programmes.
+            </p>
+          </div>
+          <div class="preview-item">
+            <h3 class="preview-item__title">Policy Guidelines</h3>
+            <p class="preview-item__description">
+              Best practice guidelines, policy templates, and procedural
+              frameworks for implementing effective safeguarding measures.
+            </p>
+          </div>
+          <div class="preview-item">
+            <h3 class="preview-item__title">Case Studies</h3>
+            <p class="preview-item__description">
+              Anonymized case examples and learning scenarios to support
+              professional development and decision-making skills.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="resources-cta section">
+    <div class="container">
+      <div class="resources-cta__content">
+        <h2 class="resources-cta__title">Stay Updated</h2>
+        <p class="resources-cta__description">
+          Want to be notified when these resources become available? Get in
+          touch to join our professional network and receive updates on new
+          materials.
+        </p>
+        <div class="resources-cta__actions">
+          <a href="/contact" class="btn btn--primary btn--large">
+            Contact Us
+          </a>
+          <p class="resources-cta__note">
+            In the meantime, feel free to reach out for consultation and
+            training services.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  /* Resources Introduction */
+  .resources-intro {
+    background: #f8fafc;
+  }
+
+  .resources-intro__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .resources-intro__lead {
+    font-size: 1.125rem;
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .resources-intro__features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .feature-item__icon {
+    font-size: 2rem;
+  }
+
+  .feature-item__text {
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* Resources Sections */
+  .resources-sections {
+    background: #ffffff;
+  }
+
+  .resources-sections__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Resources Preview */
+  .resources-preview {
+    background: #f8fafc;
+  }
+
+  .resources-preview__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .resources-preview__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3rem;
+  }
+
+  .resources-preview__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: left;
+  }
+
+  .preview-item {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .preview-item__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.75rem;
+  }
+
+  .preview-item__description {
+    color: #4b5563;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Resources CTA */
+  .resources-cta {
+    background: #1e40af;
+    color: #ffffff;
+  }
+
+  .resources-cta__content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .resources-cta__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .resources-cta__description {
+    font-size: 1.125rem;
+    color: #ffffff;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .resources-cta__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .resources-cta__note {
+    color: #e0e7ff;
+    font-size: 0.875rem;
+    font-style: italic;
+  }
+
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .resources-sections__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .resources-preview__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .resources-preview__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .resources-intro__features {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .feature-item__icon {
+      font-size: 1.5rem;
+    }
+
+    .resources-preview__title {
+      font-size: 1.5rem;
+    }
+
+    .resources-cta__title {
+      font-size: 1.5rem;
+    }
+
+    .resources-cta__description {
+      font-size: 1rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .preview-item {
+      border-width: 2px;
+    }
+
+    .resources-cta {
+      background: #1e3a8a;
+    }
+  }
+</style>
